@@ -37,10 +37,8 @@ public class UserServiceImpl implements IUserService {
         user.setEmail(userDTO.email());
         user.setAbout(userDTO.about());
 
-        User updatedUser = userRepository.save(user);
-
         //convert updated user to DTO & return
-        return userToDTO(user);
+        return userToDTO(userRepository.save(user));
     }
 
     @Override
